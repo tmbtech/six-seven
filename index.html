@@ -126,10 +126,33 @@
             z-index: 10;
         }
         
+        footer::after {
+            content: ' ✨';
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            footer {
+                font-size: 1.8rem;
+            }
+            
+            .number {
+                font-size: 8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            footer {
+                font-size: 1.4rem;
+            }
+            
+            .number {
+                font-size: 6rem;
+            }
+        }
         footer::before {
             content: '🤣 ';
         }
-        
         footer::after {
             content: ' 🤣';
         }
