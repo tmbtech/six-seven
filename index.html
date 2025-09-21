@@ -17,15 +17,71 @@
         
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             font-family: Arial, sans-serif;
             background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Background pattern */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background-image: repeating-linear-gradient(
+                45deg,
+                transparent 0px,
+                transparent 100px,
+                rgba(0, 0, 0, 0.03) 100px,
+                rgba(0, 0, 0, 0.03) 200px
+            );
+            background-size: 150px 150px;
+            z-index: -2;
+        }
+        
+        /* Repeating 6-7 text pattern */
+        body::after {
+            content: '6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7 6-7';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            font-size: 2rem;
+            color: rgba(0, 0, 0, 0.05);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.02);
+            white-space: pre-wrap;
+            line-height: 3rem;
+            letter-spacing: 1rem;
+            z-index: -1;
+            transform: rotate(-15deg);
+            animation: float 30s linear infinite;
+        }
+        
+        @keyframes float {
+            from { transform: rotate(-15deg) translate(0, 0); }
+            to { transform: rotate(-15deg) translate(-100px, -100px); }
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
         }
         
         .number {
             font-size: 10rem;
             font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 10;
         }
         
         .blue {
@@ -35,9 +91,30 @@
         .red {
             color: red;
         }
+        
+        footer {
+            padding: 20px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #666;
+            text-transform: lowercase;
+            z-index: 10;
+        }
+        
+        footer::before {
+            content: '✨ ';
+        }
+        
+        footer::after {
+            content: ' ✨';
+        }
     </style>
 </head>
 <body>
-    <div class="number">"<span class="blue">6</span>-<span class="red">7</span>"</div>
+    <div class="main-content">
+        <div class="number">"<span class="blue">6</span>-<span class="red">7</span>"</div>
+    </div>
+    <footer>get pranked</footer>
 </body>
 </html>
